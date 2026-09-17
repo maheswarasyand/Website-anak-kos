@@ -1,4 +1,4 @@
-# NamaProyek – Laravel Full + Three.js 3D Website
+# WebsiteAnakKos – Laravel Full + Three.js 3D Website
 
 NamaProyek adalah aplikasi web yang dibangun dengan **Laravel Full-Stack** (Blade + Vite) dan **Three.js** untuk tampilan 3D interaktif. Tidak ada API terpisah — data dari backend disuntikkan langsung ke frontend melalui Blade.
 
