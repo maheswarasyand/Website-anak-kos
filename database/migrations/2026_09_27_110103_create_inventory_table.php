@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('recipe_inventory', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('ingredient_id')->constrained()->cascadeOnDelete();
+            $table->decimal('quantity', 10, 2);
+            $table->decimal('minimum_stock', 10, 2)->default(0);
+            $table->date('expiry_date')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('title', 150);
+            $table->text('description')->nullable();
+            $table->enum('difficulty', ['easy', 'medium', 'hard']);
+            $table->integer('cooking_time');
+            $table->decimal('estimated_cost', 12, 2)->default(0);
+            $table->text('instructions')->nullable();
+            $table->string('image_url', 255)->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

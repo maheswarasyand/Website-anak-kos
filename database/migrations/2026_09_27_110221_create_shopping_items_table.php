@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('shopping_items', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('shopping_list_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('ingredient_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('item_name', 150);
+            $table->decimal('quantity', 10, 2)->nullable();
+            $table->string('unit', 30)->nullable();
+            $table->decimal('estimated_price', 12, 2)->nullable();
+            $table->boolean('is_purchased')->default(false);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
